@@ -1,4 +1,6 @@
-# cosmos block stats substreams
+# Injective Events Example
+
+Example shocasing how to use the `filtered_events` Injective Foundational Module to get all the events where `type = wasm`.
 
 ### Generate protos
 ```bash

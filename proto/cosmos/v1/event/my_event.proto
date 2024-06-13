@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package cosmos.v1;
+
+message MyEvent {
+    string type = 1;
+}
+
+message MyEventList {
+    repeated MyEvent events = 1;
+}

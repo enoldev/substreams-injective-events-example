@@ -1,0 +1,37 @@
+specVersion: v0.1.0
+package:
+  name: substreams-injective-events-example
+  version: v0.1.0
+  url: https://github.com/enoldev/substreams-injective-events-example
+
+network: injective-mainnet
+
+protobuf:
+  files:
+    - cosmos/v1/event/my_event.proto
+  importPaths:
+    - ./proto
+
+imports:
+  cosmos: https://github.com/streamingfast/substreams-cosmos/releases/download/v0.1.5/cosmos-v0.1.5.spkg
+  injective: https://spkg.io/streamingfast/injective-common-v0.1.0.spkg
+
+binaries:
+  default:
+    type: wasm/rust-v1
+    file: target/wasm32-unknown-unknown/release/cosmos_block_stats.wasm
+
+modules:
+  - name: filter_events
+    use: injective:filtered_events
+    initialBlock: 64987300
+
+  - name: map_events
+    kind: map
+    inputs:
+      - map: filter_events
+    output:
+      type: proto:cosmos.v1.MyEventList
+
+params:
+  filter_events: wasm # filter all the events where type = wasm

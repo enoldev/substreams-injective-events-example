@@ -1,6 +1,6 @@
 specVersion: v0.1.0
 package:
-  name: substreams-injective-events-example
+  name: substreams_injective_events_example
   version: v0.1.0
   url: https://github.com/enoldev/substreams-injective-events-example
 
@@ -19,7 +19,7 @@ imports:
 binaries:
   default:
     type: wasm/rust-v1
-    file: target/wasm32-unknown-unknown/release/cosmos_block_stats.wasm
+    file: target/wasm32-unknown-unknown/release/substreams_injective_events_example.wasm
 
 modules:
   - name: filter_events
